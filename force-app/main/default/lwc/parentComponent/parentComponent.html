@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <lightning-input
+      label="Enter Text"
+      field-name="input"
+      class="slds-var-m-bottom_xx-small"
+    >
+    </lightning-input>
+
+    <lightning-button label="Add" variant="neutral" onclick={addInputToList}>
+    </lightning-button>
+  </div>
+
+  <template if:true={selected}>
+    <h1 class="slds-text-heading_large">you have selected {input}</h1>
+  </template>
+
+  <ul>
+    <template for:each={list} for:item="inputItem">
+      <li key={inputItem}>
+        <c-child-component inputitem={inputItem}> </c-child-component>
+      </li>
+    </template>
+  </ul>
+</template>
